@@ -1,0 +1,48 @@
+.item{
+	width:90px; 
+	text-align:left;
+	font-size:12px;
+	font-weight:bold;
+}
+#accountBtn {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  height: 25px;
+  line-height: 25px;
+  font-weight: bold;
+  padding: 0 8px 25px 8px;
+  text-decoration:none;
+  color: #444;
+  text-shadow: 0 1px 0 #fff;
+  width:100px; 
+}
+#accountBtn {
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+}
+#containerAccount{
+   position:relative;
+   width:800px;
+   margin:0 auto;
+   background-color:transparent;
+   margin-left: 5%;
+   margin-right: 5%;
+}
+.groupAccount {
+	float: right;
+	width: 780px;
+	position: relative;
+	padding:15px;
+	background:white;
+	border:3px double #CDCDCD;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	height:400px;
+	}
+.accountTable{
+	width:300px;
+	border-color:#FFFFFF;
+	margin-top:30px;
+}
