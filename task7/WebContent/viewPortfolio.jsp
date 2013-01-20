@@ -1,7 +1,7 @@
 <!doctype html>  
 <head>
 <meta charset="UTF-8">
-<title>Home - Online Mutual Fund</title>
+<title>View Portfolio - Online Mutual Fund</title>
 <link rel="icon" href="images/favicon.gif" type="image/x-icon"/>
 
 <link rel="shortcut icon" href="images/favicon.gif" type="image/x-icon"/> 
@@ -56,7 +56,7 @@
    <!--start holder-->
 
    <div class="sidebar">
-   <section class="group2">
+   <section class="group6">
    <p><a> Change Password </a></p>
    <p><a> View Portfolio </a></p>
    <p><a> Buy Fund </a></p>
@@ -68,60 +68,73 @@
    </section>
    </div>
    <!--end holder-->
+    <div class="holder_table">
+   <form action="">
+   <section class="group5">
+   <div>
+   <p >View Portfolio</p>
    
-   <div class="holder_table">
-  <section class="group5">
-   <p>Transaction History: </p><br>
-   <form method="POST" action="BuyFund.html">
    
-		<table border="2" class="accountTable" align="center">
-			<tr>
-				<th width="100">Transaction Date</th>
-				<th width="100">Operation</th>
-				<th width="100">Fund Name</th>
-				<th width="100">Number of shares</th>
-				<th width="60">Share Price</th>
-				<th width="100">Amount ($)</th>
-				<th width="100">Status</th>
-			</tr>
-			<tr>
-				<td align="center">1/16/2013</td>
-				<td align="center">Buy</td>
-				<td align="center">Terry Fund</td>
-				<td align="center">100</td>
-				<td align="center">23.56</td>
-				<td align="center">2356</td>
-				<td align="center">Completed</td>
-			</tr>
-			<tr>
-				<td align="center">1/14/2013</td>
-				<td align="center">Deposit</td>
-				<td align="center">Sujata Fund</td>
-				<td align="center">50</td>
-				<td align="center">*</td>
-				<td align="center">*</td>
-				<td align="center">Pending</td>
-			</tr>
-			<tr>
-				<td align="center">1/15/2013</td>
-				<td align="center">Sell</td>
-				<td align="center">Sophie Fund</td>
-				<td align="center">100</td>
-				<td align="center">25</td>
-				<td align="center">2500</td>
-				<td align="center">Completed</td>
-			</tr>
-			<tr>
-				<td colspan="7">
-					<div align="center">
-						<input type="submit" name="button" id="accountBtn" value="Buy Fund"/>
-					</div>
-				</td>
-			</tr>
-		</table>
-	</form>
+   <table>
+   <tr>
+   <table border=0 width=160  class="customerAccountTable" align="center">
+     <tr>
+       <td>First Name:</td>
+	   <td>a</td>
+     </tr>
+     <tr>
+       <td>Last Name:</td>
+	   <td>a</td>
+     </tr>
+     <tr>
+       <td>Address:</td>
+	   <td>a</td>
+	 </tr>
+	 <tr>
+	    <td></td>
+       	<td>a</td>
+     </tr>
+     <tr>
+       <td>Date of Last Trading Day:</td>
+	   <td>a</td>
+     </tr>
+     <tr>
+       <td>Cash Balance:</td>
+	   <td>a</td>
+     </tr>
+     <tr></tr>
+     <tr></tr>
+     </table>
+     
+    
+       <table border=1 class="portfolioTable" align= "center">
+       <tr>Portfolio</tr>
+	   <tr>
+	       <td>Fund Name</td>
+	       <td>Units/Shares</td>
+	       <td>NAV(per unit)</td>
+	       <td>Market Value($)</td> 
+	   </tr>
+	   <tr>
+	       <td>a</td>
+	       <td>a</td>
+	       <td>a</td>
+	       <td>a</td>
+	   </tr>
+	   <tr>
+	       <td>a</td>
+	       <td>a</td>
+    	   <td>a</td>
+    	   <td>a</td>
+       </tr>
+       </table>
+     </tr>
+     </table>
    
+   
+   </div>
    </section>
+   </form>
    </div>
    
    

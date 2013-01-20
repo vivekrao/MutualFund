@@ -1,20 +1,20 @@
 <!doctype html>  
 <head>
 <meta charset="UTF-8">
-<title>Mutual Funds - Sell funds</title>
+<title>Logout2 - Online Mutual Fund</title>
 <link rel="icon" href="images/favicon.gif" type="image/x-icon"/>
 
 <link rel="shortcut icon" href="images/favicon.gif" type="image/x-icon"/> 
 <link rel="stylesheet" type="text/css" href="css/styles.css"/>
 
+
 	<script src="js/jquery-1.7.2.min.js"></script>
 	<script src="js/slides.min.jquery.js"></script>
-	<script src="js/function.js"></script>
 	<script>
 		$(function(){
 			$('#slides').slides({
 				preload: true,
-				preloadImage: 'images/loading.jpg',
+				preloadImage: 'images/loading.gif',
 				play: 5000,
 				pause: 2500,
 				hoverPause: true
@@ -31,12 +31,12 @@
 	<header>
     <!--start logo-->
     <a href="#" id="logo"><img src="images/logo.png" width="380" height="80" alt="logo"/></a>    
-	
+
 	<!--end logo-->
 	
 	</header>
 
-   
+
     <!--start menu-->
 
 
@@ -51,71 +51,50 @@
     </ul>
     </div>
 	<!--end menu-->
-    <div class="sidebar">
-   <section class="group2">
+  
+
+   <!--start holder-->
+
+   <div class="sidebar">
+   <section class="group6">
    <p><a> Change Password </a></p>
-   <p><a> View Portfolio </a></p>
-   <p><a> Buy Fund </a></p>
-   <p><a> Sell Fund </a></p>
-   <p><a> Transaction History </a></p>
-   <p><a> Research Fund </a></p>
-   <p><a> Request Check </a></p>
-   <p><a>Log out</a>
+   <p><a> Create Employee Account </a></p>
+   <p><a> Create Customer Account </a></p>
+   <p><a> Reset Customer Password </a></p>
+   <p><a> View Customer Account </a></p>
+   <p><a> Deposit Check </a></p>
+   <p><a> Create Fund </a></p>
+   <p><a> Transition Day </a></p>
+   <p><a> Log out</a>
    </section>
    </div>
    <!--end holder-->
    
    <div class="holder_table">
-   
+   <form action="">
    <section class="group5">
-   <p>Choose fund to sell: </p><br>
-   <form method="POST" action="#">
-   
-		<table border="2" class="accountTable" align="center">
-			<tr>
-				<th width="100">Fund Name</th>
-				<th width="100">NAV (Per unit)</th>
-				<th width="100">Units/Shares</th>
-				<th width="100">Market Value ($)</th>
-				<th width="100">Profit %</th>
-				<th width="100">Details</th>
-			</tr>
-			<tr>
-				<td align="center">Terry Fund</td>
-				<td align="center">21</td>
-				<td align="center">10000</td>
-				<td align="center">210000</td>
-				<td align="center">+ 5</td>
-				<td align="center"><a href="SellFundDetail.html">Sell</a></td>
-			</tr>
-			<tr>
-				<td align="center">Sujata Fund</td>
-				<td align="center">23.56</td>
-				<td align="center">10000</td>
-				<td align="center">235600</td>
-				<td align="center">+ 15</td>
-				<td align="center"><a href="SellFundDetail.html">Sell</a></td>
-			</tr>
-			<tr>
-				<td align="center">Sophie Fund</td>
-				<td align="center">38.43</td>
-				<td align="center">10000</td>
-				<td align="center">384300</td>
-				<td align="center">+ 7.5</td>
-				<td align="center"><a href="SellFundDetail.html">Sell</a></td>
-			</tr>
-		</table>
-	</form>
-   
-   </section>
+   <div>
+   <p >Log Out</p>
 
+   <table border=0 class="logoutTable2" align="left">
+     <tr>
+        <p>Are you sure you want to log out now?</p>
+     </tr>
+     <tr>
+        <td><input type="submit" name="button" id="CancelBtn" value="Cancel"/></td>
+        <td></td>
+        <td></td>
+        <td></td>
+		<td><input type="submit" name="button" id="LogoutBtn" value="Logout"/></td>
+     </tr>
+   </table>
+   
+   
    </div>
-   <!--end holder-->
-
+   </section>
+   </form>
+   </div>
    
-   <!--start holder-->
-
-   <!--end holder-->
    
    
    </div>
@@ -124,6 +103,7 @@
    <!--start footer-->
    <footer>
    <div class="container">
+   <img src="images/contact-us.png" width="240" height="230" alt="contact" class="picture_footer"/>
    <section class="footer_left">
    <h3>Contact information:
    <span>Lorem ipsum dolor sit amet</span>
@@ -145,8 +125,8 @@
    <span>Lorem ipsum dolor sit amet</span>
    </h3>
    </aside> 
-   <img src="images/contact-us.png" width="240" height="230" alt="contact" class="picture_footer"/>
    </div>
    </footer>
    <!--end footer-->
-   </body></html>
+   </body>
+   </html>

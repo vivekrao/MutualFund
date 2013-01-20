@@ -1,26 +1,18 @@
 <!doctype html>  
 <head>
 <meta charset="UTF-8">
-<title>Home - Online Mutual Fund</title>
+<title>Transaction Day - Online Mutual Fund</title>
 <link rel="icon" href="images/favicon.gif" type="image/x-icon"/>
 
 <link rel="shortcut icon" href="images/favicon.gif" type="image/x-icon"/> 
 <link rel="stylesheet" type="text/css" href="css/styles.css"/>
-
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
 
 	<script src="js/jquery-1.7.2.min.js"></script>
 	<script src="js/slides.min.jquery.js"></script>
-	<script>
-		$(function(){
-			$('#slides').slides({
-				preload: true,
-				preloadImage: 'images/loading.gif',
-				play: 5000,
-				pause: 2500,
-				hoverPause: true
-			});
-		});
-	</script>
+	<script src="js/function.js"></script>
+	<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
 
 
     </head>
@@ -50,40 +42,59 @@
 
     </ul>
     </div>
+ 
 	<!--end menu-->
-  
-
-   <!--start holder-->
-
-   <div class="sidebar">
-   <section class="group2">
-   <p><a> Change Password </a></p>
-   <p><a> View Portfolio </a></p>
-   <p><a> Buy Fund </a></p>
-   <p><a> Sell Fund </a></p>
-   <p><a> Transaction History </a></p>
-   <p><a> Research Fund </a></p>
-   <p><a> Request Check </a></p>
-   <p><a>Log out</a>
-   </section>
+	<div class="date">
+		<form class="choose">
+			Choose Date:    <input type="text" id="datepicker" /><input type="submit" class="datebtn" value="GO"/>
+		</form>
+	</div>
+   <div class="holder_content1">
+   <form action="">
+   <section class="group4">
+   <div>
+   <h1>Enter Closing Prices<input type="submit" value="Confirm All on this Page" name="confirm" class="confirmbtn"></h1>
    </div>
-   <!--end holder-->
-   
-   <div class="holder_table">
-  <section class="group5">
-   <p>Buy Terry's Fund! </p><br>
-   <form method="POST" action="#">
-   		<p style="color: black">
-   			<label><b>Terry Fund: </b></label><br><br>
-   			<label>Current NAV: </label><label>23.56</label><br><br>
-   			Amount: <input type="text" name="buyAmount"><br><br>
-   			<input type="submit" name="button" id="buyButton" value="Buy Fund">
-   		</p>
-   		<p>*NAV at the end of the transition day will be considered and not the Current NAV</p>
-	</form>
-   </section>
+   <article>
+   <table class="table">
+   	<tr>
+   		<th>Company</th>
+   		<th>Last Sale</th>
+   		<th>Closing Price</th>
+   	</tr>
+   	<tr>
+   		<td>a</td>
+   		<td>a</td>
+   		<td><input type="text" size="20" /></td>
+   	</tr>
+   	<tr>
+   		<td>a</td>
+   		<td>a</td>
+   		<td><input type="text" size="20" /></td>
+   	</tr>
+   	<tr>
+   		<td>a</td>
+   		<td>a</td>
+   		<td><input type="text" size="20" /></td>
+   	</tr>
+   	<tr>
+   		<td>a</td>
+   		<td>a</td>
+   		<td><input type="text" size="20" /></td>
+   	</tr>
+   	<tr>
+   		<td>a</td>
+   		<td>a</td>
+   		<td><input type="text" size="20" /></td>
+   	</tr>
+   </table>
+   </article> 
+   <div class="page">
+   	<input type="button" class="pageupbtn" value="<"/>1<input type="button" class="pagedownbtn" value=">"/>
    </div>
-   
+   </section>
+   </form>
+   </div>
    
    
    </div>
@@ -117,5 +128,4 @@
    </div>
    </footer>
    <!--end footer-->
-   </body>
-   </html>
+   </body></html>
