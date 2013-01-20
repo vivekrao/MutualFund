@@ -10,7 +10,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class HibernateBaseDaoImpl {
+import dao.HibernateBaseDao;
+
+public class HibernateBaseDaoImpl implements HibernateBaseDao {
 
 	private final SessionFactory sessionFactory = buildSessionFactory();
 

@@ -14,6 +14,16 @@ public class FundPriceHistory {
 	private String price_date;
 	private double price;
 	
+	public FundPriceHistory() {
+		
+	}	
+	
+	public FundPriceHistory(Fund fund, String price_date, double price) {
+		this.fund = fund;
+		this.price_date = price_date;
+		this.price = price;
+	}
+	
 	@Id
 	public Fund getFund() {
 		return fund;

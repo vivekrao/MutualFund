@@ -14,6 +14,16 @@ public class Position {
 	private Fund fund;
 	private String shares;
 	
+	public Position() {
+		
+	}
+	
+	public Position(Customer c, Fund f, String shares) {
+		this.customer = c;
+		this.fund = f;
+		this.shares = shares;
+	}
+	
 	@Id
 	public Customer getCustomer() {
 		return customer;

@@ -6,4 +6,5 @@ public interface CustomerDao {
 	public boolean isExistedCustomer(String username);
 	public boolean changePassword(Customer c, String oldPassword, String newPassword);
 	public boolean createCustomer(Customer c);
+	public double findCashByCustomerId(int customer_id);
 }

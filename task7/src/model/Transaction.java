@@ -13,13 +13,39 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "transaction")
 public class Transaction {
+	
+	public final static int SELL = 1;
+	public final static int BUY = 2;
+	public final static int DEPOSIT = 3;
+	public final static int CHECK = 4;
+	
 	private int transaction_id;
 	private Customer customer;
 	private Fund fund;
 	private String execute_date;
-	private String shares;
-	private String transaction_type;
-	private int amount;
+	private int shares;
+	private int transaction_type;
+	private double amount;
+	
+	public Transaction() {
+		
+	}
+	
+	public Transaction(Customer c, Fund f, String execute_date, 
+			int shares, int transaction_type, double amount) {
+		this.customer = c;
+		this.fund = f;
+		this.execute_date = execute_date;
+		this.shares = shares;
+		this.transaction_type = transaction_type;
+		this.amount = amount;
+	}
+	
+	public Transaction(Customer c, int transaction_type, double amount) {
+		this.customer = c;
+		this.transaction_type = transaction_type;
+		this.amount = amount;
+	}
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -42,29 +68,29 @@ public class Transaction {
 	}
 	
 	@Column(name = "shares")
-	public String getShares() {
+	public int getShares() {
 		return shares;
 	}
 	
-	public void setShares(String shares) {
+	public void setShares(int shares) {
 		this.shares = shares;
 	}
 	
 	@Column(name = "transaction_type")
-	public String getTransaction_type() {
+	public int getTransaction_type() {
 		return transaction_type;
 	}
 	
-	public void setTransaction_type(String transaction_type) {
+	public void setTransaction_type(int transaction_type) {
 		this.transaction_type = transaction_type;
 	}
 	
 	@Column(name = "amount")
-	public int getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 	
-	public void setAmount(int amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 	

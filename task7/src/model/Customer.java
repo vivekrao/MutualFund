@@ -22,6 +22,25 @@ public class Customer {
 	private int zip;
 	private double cash;
 	
+	public Customer() {
+		
+	}
+	
+	public Customer(String username, String password, String firstname,
+			String lastname, String addr_line1, String addr_line2, 
+			String city, String state, int zip, double cash) {
+		this.username = username;
+		this.password = password;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.addr_line1 = addr_line1;
+		this.addr_line2 = addr_line2;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+		this.cash = cash;
+	}
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "customer_id")

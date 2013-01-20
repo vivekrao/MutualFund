@@ -14,6 +14,15 @@ public class Fund {
 	private String name;
 	private String symbol;
 	
+	public Fund() {
+		
+	}
+	
+	public Fund(String name, String symbol) {
+		this.name = name;
+		this.symbol = symbol;
+	}
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "fund_id")
