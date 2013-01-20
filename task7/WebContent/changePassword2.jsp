@@ -1,7 +1,7 @@
 <!doctype html>  
 <head>
 <meta charset="UTF-8">
-<title>Home - Online Mutual Fund</title>
+<title>Change Password2 - Online Mutual Fund</title>
 <link rel="icon" href="images/favicon.gif" type="image/x-icon"/>
 
 <link rel="shortcut icon" href="images/favicon.gif" type="image/x-icon"/> 
@@ -56,57 +56,54 @@
    <!--start holder-->
 
    <div class="sidebar">
-   <section class="group2">
+   <section class="group6">
    <p><a> Change Password </a></p>
-   <p><a> View Portfolio </a></p>
-   <p><a> Buy Fund </a></p>
-   <p><a> Sell Fund </a></p>
-   <p><a> Transaction History </a></p>
-   <p><a> Research Fund </a></p>
-   <p><a> Request Check </a></p>
-   <p><a>Log out</a>
+   <p><a> Create Employee Account </a></p>
+   <p><a> Create Customer Account </a></p>
+   <p><a> Reset Customer Password </a></p>
+   <p><a> View Customer Account </a></p>
+   <p><a> Deposit Check </a></p>
+   <p><a> Create Fund </a></p>
+   <p><a> Transition Day </a></p>
+   <p><a> Log out</a>
    </section>
    </div>
    <!--end holder-->
    
    <div class="holder_table">
-  <section class="group5">
-   <p>Research Funds: </p><br>
-   <form method="POST" action="buyFund.jsp">
+   <form action="">
+   <section class="group5">
+   <div>
+   <p >Change Password</p>
+
+   <table border=0 class="changePasswordTable2" align="left">
+     <tr>
+       <td>User Name:</td>
+	   <td><input name="username" size="25" type="text" /></td>
+     </tr>
+     <tr>
+		<td class="item">Old Password:</td>
+	    <td><input name="oldPassword" size="25" type="password" /></td>
+	 </tr>
+	 <tr>
+		<td class="item">New Password:</td>
+		<td><input name="newPassword" size="25" type="password" /></td>
+	 </tr>
+	 <tr>
+		<td class="item">Confirm New Password:</td>
+		<td><input name="confirmPassword" size="25" type="password" /></td>
+	 </tr>
+	 <tr></tr>
+     <tr>
+        <td></td>
+        <td align="center"><input type="submit" name="button" id="changePwdBtn" value="Change Password"/></td>
+     </tr>
+   </table>
    
-		<table border="2" class="accountTable" align="center">
-			<tr>
-				<th width="100">Formation Date</th>
-				<th width="100">Fund Name</th>
-				<th width="100">Tickr</th>
-				<th width="60">Share Price (NAV)</th>
-				<th width="100"></th>
-			</tr>
-			<tr>
-				<td align="center">1/16/2010</td>
-				<td align="center">Terry Fund</td>
-				<td align="center">TRRY</td>
-				<td align="center">23.56</td>
-				<td align="center"><a href="ResearchFundDetail.html">Details</a></td>
-			</tr>
-			<tr>
-				<td align="center">1/14/2009</td>
-				<td align="center">Sujata Fund</td>
-				<td align="center">SJATA</td>
-				<td align="center">21</td>
-				<td align="center"><a href="ResearchFundDetail.html">Details</a></td>
-			</tr>
-			<tr>
-				<td align="center">1/15/2007</td>
-				<td align="center">Sophie Fund</td>
-				<td align="center">SPHIE</td>
-				<td align="center">31.34</td>
-				<td align="center"><a href="ResearchFundDetail.html">Details</a></td>
-			</tr>
-		</table>
-	</form>
    
+   </div>
    </section>
+   </form>
    </div>
    
    

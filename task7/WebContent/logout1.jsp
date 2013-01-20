@@ -1,7 +1,7 @@
 <!doctype html>  
 <head>
 <meta charset="UTF-8">
-<title>Home - Online Mutual Fund</title>
+<title>Logout1 - Online Mutual Fund</title>
 <link rel="icon" href="images/favicon.gif" type="image/x-icon"/>
 
 <link rel="shortcut icon" href="images/favicon.gif" type="image/x-icon"/> 
@@ -56,7 +56,7 @@
    <!--start holder-->
 
    <div class="sidebar">
-   <section class="group2">
+   <section class="group6">
    <p><a> Change Password </a></p>
    <p><a> View Portfolio </a></p>
    <p><a> Buy Fund </a></p>
@@ -64,45 +64,34 @@
    <p><a> Transaction History </a></p>
    <p><a> Research Fund </a></p>
    <p><a> Request Check </a></p>
-   <p><a>Log out</a>
+   <p><a> Log out</a>
    </section>
    </div>
    <!--end holder-->
    
    <div class="holder_table">
-  <section class="group5">
-   <p>Fund details: </p><br>
-   <form method="POST" action="buyFund.jsp">
-   		<p>
-   			Terry Fund (TRRY) <br><br>
-   			Current NAV: 23.56 <br>
-   			
-   		</p>
-   		
-   		
-   		<div>
-						Fund Overview: The investment seeks to provide capital
-						appreciation and income consistent with its current asset
-						allocation. The fund invests primarily in a combination of other
-						Schwab Funds and Laudus Funds. It is designed for an investor who
-						anticipates retiring at or about the target date and plans to
-						withdraw the value of the investor's account in the fund gradually
-						after retirement. At the stated target date, the fund's allocation
-						will be approximately 40% equity securities, 53% fixed income
-						securities, and 7% money market funds. It may also invest in
-						unaffiliated third party mutual funds. 
-						
-   		</div>
-   		
-   		<p>
-   			Graph: <br>
-   			
-   			<img src="images/graph.gif" width="180" height="135" alt="logo"/>
-   			
-   		</p>
-	</form>
+   <form action="">
+   <section class="group5">
+   <div>
+   <p >Log Out</p>
+
+   <table border=0 class="logoutTable1" align="left">
+     <tr>
+        <p>Are you sure you want to log out now?</p>
+     </tr>
+     <tr>
+        <td><input type="submit" name="button" id="CancelBtn" value="Cancel"/></td>
+        <td></td>
+        <td></td>
+        <td></td>
+		<td><input type="submit" name="button" id="LogoutBtn" value="Logout"/></td>
+     </tr>
+   </table>
    
+   
+   </div>
    </section>
+   </form>
    </div>
    
    
