@@ -2,6 +2,8 @@ package form;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.mybeans.form.FormBean;
+
 public class DepositCheckForm extends FormBean {
 	private String customerName;
 	private String amount;
