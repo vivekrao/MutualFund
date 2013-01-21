@@ -1,5 +1,7 @@
 package model;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +14,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "transaction")
-public class Transaction {
+public class Transaction implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	
 	public final static int SELL = 1;
 	public final static int BUY = 2;

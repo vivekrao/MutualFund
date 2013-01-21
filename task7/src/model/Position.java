@@ -1,5 +1,7 @@
 package model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,10 +11,13 @@ import javax.persistence.IdClass;
 @Entity  
 @Table(name="position")  
 @IdClass(PKPosition.class)
-public class Position {
+public class Position implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	
 	private Customer customer;
 	private Fund fund;
-	private String shares;
+	private int shares;
 	
 	public Position() {
 		
@@ -43,11 +48,11 @@ public class Position {
 	}
 	
 	@Column(name = "shares")
-	public String getShares() {
+	public int getShares() {
 		return shares;
 	}
 	
-	public void setShares(String shares) {
+	public void setShares(int shares) {
 		this.shares = shares;
 	}
 }

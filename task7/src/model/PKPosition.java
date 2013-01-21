@@ -15,6 +15,15 @@ public class PKPosition implements Serializable {
 	private Customer customer;
 	private Fund fund;
 	
+	public PKPosition() {
+		
+	}
+	
+	public PKPosition(Customer c, Fund f) {
+		this.customer = c;
+		this.fund = f;
+	}
+
 	@ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="customer_id")
 	public Customer getCustomer() {

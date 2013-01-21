@@ -1,5 +1,7 @@
 package model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,7 +11,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "fund_price_history")
 @IdClass(PKFundPriceHistory.class)
-public class FundPriceHistory {
+public class FundPriceHistory implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	
 	private Fund fund;
 	private String price_date;
 	private double price;
