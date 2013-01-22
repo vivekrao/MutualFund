@@ -1,25 +1,17 @@
-/**
- * andrew ID: chenc2
- * name:Chen Chen
- * date:5th Dec
- */
 package controller;
-
 import java.io.IOException;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-import org.genericdao.RollbackException;
-
-
+import dao.EmployeeDao;
+import dao.impl.EmployeeDaoImpl;
 
 public class Controller extends HttpServlet {
 
     public void init() throws ServletException{
-        Model model = new Model(getServletConfig());
+       // Model model = new Model(getServletConfig());
 
-        Action.add(new CreateEmployeeAction(model));
+        Action.add(new CreateEmployeeAction(new EmployeeDaoImpl()));
         /*Action.add(new ListAction(model));
         Action.add(new LoginAction(model));
         Action.add(new LogoutAction(model));
@@ -49,12 +41,12 @@ public class Controller extends HttpServlet {
     private String performTheAction(HttpServletRequest request) {
         HttpSession session     = request.getSession(true);
         String      servletPath = request.getServletPath();
-        UserBean        user = (UserBean) session.getAttribute("user");
+        //UserBean        user = (UserBean) session.getAttribute("user");
         String      action = getActionName(servletPath);
 
         // System.out.println("servletPath="+servletPath+" requestURI="+request.getRequestURI()+"  user="+user);
 
-        if (action.equals("register.do") || action.equals("login.do")) {
+        /*if (action.equals("register.do") || action.equals("login.do")) {
         	// Allow these actions without logging in
 			return Action.perform(action,request);
         }
@@ -74,7 +66,7 @@ public class Controller extends HttpServlet {
         if (action.equals("start")) {
         	// If he's logged in but back at the /start page, send him to manage his pics
 			return Action.perform("manage.do",request);
-        }
+        }*/
 
       	// Let the logged in user run his chosen action
 		return Action.perform(action,request);
