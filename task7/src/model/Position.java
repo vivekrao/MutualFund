@@ -23,7 +23,7 @@ public class Position implements Serializable {
 		
 	}
 	
-	public Position(Customer c, Fund f, String shares) {
+	public Position(Customer c, Fund f, int shares) {
 		this.customer = c;
 		this.fund = f;
 		this.shares = shares;
