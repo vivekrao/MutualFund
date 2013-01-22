@@ -17,13 +17,13 @@ public class Position implements Serializable {
 	
 	private Customer customer;
 	private Fund fund;
-	private int shares;
+	private long shares;
 	
 	public Position() {
 		
 	}
 	
-	public Position(Customer c, Fund f, int shares) {
+	public Position(Customer c, Fund f, long shares) {
 		this.customer = c;
 		this.fund = f;
 		this.shares = shares;
@@ -48,11 +48,11 @@ public class Position implements Serializable {
 	}
 	
 	@Column(name = "shares")
-	public int getShares() {
+	public long getShares() {
 		return shares;
 	}
 	
-	public void setShares(int shares) {
+	public void setShares(long shares) {
 		this.shares = shares;
 	}
 }

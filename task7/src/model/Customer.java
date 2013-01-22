@@ -25,7 +25,7 @@ public class Customer implements Serializable {
 	private String city;
 	private String state;
 	private int zip;
-	private double cash;
+	private long cash;
 	
 	public Customer() {
 		
@@ -33,7 +33,7 @@ public class Customer implements Serializable {
 	
 	public Customer(String username, String password, String firstname,
 			String lastname, String addr_line1, String addr_line2, 
-			String city, String state, int zip, double cash) {
+			String city, String state, int zip, long cash) {
 		this.username = username;
 		this.password = password;
 		this.firstname = firstname;
@@ -139,11 +139,11 @@ public class Customer implements Serializable {
 	}
 	
 	@Column(name = "cash")
-	public double getCash() {
+	public long getCash() {
 		return cash;
 	}
 	
-	public void setCash(double cash) {
+	public void setCash(long cash) {
 		this.cash = cash;
 	}
 }

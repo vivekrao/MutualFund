@@ -29,14 +29,14 @@ public class Transaction implements Serializable {
 	private String execute_date;
 	private int shares;
 	private int transaction_type;
-	private double amount;
+	private long amount;
 	
 	public Transaction() {
 		
 	}
 	
 	public Transaction(Customer c, Fund f, String execute_date, 
-			int shares, int transaction_type, double amount) {
+			int shares, int transaction_type, long amount) {
 		this.customer = c;
 		this.fund = f;
 		this.execute_date = execute_date;
@@ -45,7 +45,7 @@ public class Transaction implements Serializable {
 		this.amount = amount;
 	}
 	
-	public Transaction(Customer c, int transaction_type, double amount) {
+	public Transaction(Customer c, int transaction_type, long amount) {
 		this.customer = c;
 		this.transaction_type = transaction_type;
 		this.amount = amount;
@@ -90,11 +90,11 @@ public class Transaction implements Serializable {
 	}
 	
 	@Column(name = "amount")
-	public double getAmount() {
+	public long getAmount() {
 		return amount;
 	}
 	
-	public void setAmount(double amount) {
+	public void setAmount(long amount) {
 		this.amount = amount;
 	}
 	

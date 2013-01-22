@@ -17,13 +17,13 @@ public class FundPriceHistory implements Serializable {
 	
 	private Fund fund;
 	private String price_date;
-	private double price;
+	private long price;
 	
 	public FundPriceHistory() {
 		
 	}	
 	
-	public FundPriceHistory(Fund fund, String price_date, double price) {
+	public FundPriceHistory(Fund fund, String price_date, long price) {
 		this.fund = fund;
 		this.price_date = price_date;
 		this.price = price;
@@ -48,11 +48,11 @@ public class FundPriceHistory implements Serializable {
 	}
 	
 	@Column(name = "price")
-	public double getPrice() {
+	public long getPrice() {
 		return price;
 	}
 	
-	public void setPrice(double price) {
+	public void setPrice(long price) {
 		this.price = price;
 	}
 }
