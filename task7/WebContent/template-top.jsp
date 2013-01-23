@@ -40,10 +40,10 @@
 					<a> Change Password </a>
 				</p>
 				<p>
-					<a> Create Employee Account </a>
+					<a href="createEmployee.do"> Create Employee Account </a>
 				</p>
 				<p>
-					<a> Create Customer Account </a>
+					<a href="createCustomer.do"> Create Customer Account </a>
 				</p>
 				<p>
 					<a> Reset Customer Password </a>

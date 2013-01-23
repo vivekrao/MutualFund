@@ -7,4 +7,6 @@ public interface EmployeeDao {
 	public boolean isExistedEmployee(String username);
 	//Create new employee in database.
 	public boolean createEmployee(Employee e);
+	//Get employee through username
+	public Employee getEmployeeByName(String username);
 }

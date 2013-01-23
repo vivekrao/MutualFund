@@ -806,8 +806,18 @@ footer{
 }
 .group6 p a{
 	line-height:1.5em;
+	text-decoration: none;
 }
 .group6 p a:hover{
 	text-decoration: underline;
 	color:#3f3e3c;
+}
+#errors{
+	border:red solid thin; 
+	width:250px;
+	padding: 15px;
+	margin : 20px;
+	color:red;
+	font-size:12px;
+	font-weight:bold;
 }

@@ -20,5 +20,14 @@ public class EmployeeDaoImpl extends HibernateBaseDaoImpl implements EmployeeDao
 	public boolean createEmployee(Employee e) {
 		return this.save(e);
 	}
+	
+	@Override
+	public Employee getEmployeeByName(String username) {
+		List<Object> list = this.findByHQL("from Employee c where c.username = '" + username + "'");
+		if(list.size() > 0) {
+			return (Employee) list.get(0);
+		}
+		return null;
+	}
 
 }

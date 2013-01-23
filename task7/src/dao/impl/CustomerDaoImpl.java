@@ -58,5 +58,14 @@ public class CustomerDaoImpl extends HibernateBaseDaoImpl implements CustomerDao
 		}
 		return c.getAddr_line1() + " " + c.getAddr_line2();
 	}
+	
+	@Override
+	public Customer getCustomerByName(String username) {
+		List<Object> list = this.findByHQL("from Customer c where c.username = '" + username + "'");
+		if(list.size() > 0) {
+			return (Customer) list.get(0);
+		}
+		return null;
+	}
 
 }

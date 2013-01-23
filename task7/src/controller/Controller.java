@@ -11,10 +11,10 @@ public class Controller extends HttpServlet {
 
         Action.add(new CreateEmployeeAction(new EmployeeDaoImpl()));
         Action.add(new CreateCustomerAction(new CustomerDaoImpl()));
-        /*Action.add(new LoginAction(model));
-        Action.add(new LogoutAction(model));
-        Action.add(new ManageAction(model));
-        Action.add(new RegisterAction(model));
+        Action.add(new CreateFundAction(new FundDaoImpl()));
+        Action.add(new EmployeeLoginAction(new EmployeeDaoImpl()));
+        Action.add(new CustomerLoginAction(new CustomerDaoImpl()));
+        /*Action.add(new RegisterAction(model));
         Action.add(new RemoveAction(model));
         Action.add(new AddAction(model));
         Action.add(new ClickAction(model));*/

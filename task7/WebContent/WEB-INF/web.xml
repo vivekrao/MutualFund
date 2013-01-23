@@ -16,7 +16,7 @@
 </servlet-mapping>
 
     <welcome-file-list>
-        <welcome-file>   createEmployee.do   </welcome-file>
+        <welcome-file>   employeeLogin.do   </welcome-file>
     </welcome-file-list>
 
 </web-app>

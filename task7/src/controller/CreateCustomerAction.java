@@ -52,6 +52,11 @@ public class CreateCustomerAction extends Action {
 	        if (errors.size() != 0) {
 	            return "createCustomerAccount.jsp";
 	        }
+	        
+	        if(customerDaoImpl.isExistedCustomer(form.getUsername())){
+	        	errors.add("The user is existed");
+	        	return "createCustomerAccount.jsp";
+	        }
 	
 	        // Create the user bean
 	        Customer customer = new Customer();
@@ -63,23 +68,25 @@ public class CreateCustomerAction extends Action {
 	        customer.setLastname(form.getLastName());
 	        customer.setPassword(form.getPassword());
 	        customer.setState(form.getState());
-	        customer.setZip(Integer.parseInt(form.getZip()));
+	        customer.setZip(form.getZip()==null?0:Integer.parseInt(form.getZip()));
         	customerDaoImpl.createCustomer(customer);
         
 			// Attach (this copy of) the user bean to the session
-	        HttpSession session = request.getSession(false);
+	    /*    HttpSession session = request.getSession(false);
 	       // session.setAttribute("user",user);
 	
 	        // After successful registration (and login) send to...
 	        String redirectTo = (String) session.getAttribute("redirectTo");
-	        if (redirectTo != null) return redirectTo;
+	        if (redirectTo != null) return redirectTo;*/
 	        
 	        // If redirectTo is null, redirect to the "manage" action
-			String webapp = request.getContextPath();
-			return webapp + "/manage.do";
+			/*String webapp = request.getContextPath();
+			return webapp + "/manage.do";*/
+        	request.setAttribute("message","New Account for Customer "+customer.getFirstname()+customer.getLastname()+" has been created sucessfully.\n User Name is "+customer.getUsername());
+			return "success.jsp";
         } catch (FormBeanException e) {
         	errors.add(e.getMessage());
-        	return "register.jsp";
+        	return "createCustomerAccount.jsp";
         }
     }
 }

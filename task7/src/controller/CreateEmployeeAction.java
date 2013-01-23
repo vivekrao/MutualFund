@@ -51,6 +51,11 @@ public class CreateEmployeeAction extends Action {
 	        if (errors.size() != 0) {
 	            return "createEmployeeAccount.jsp";
 	        }
+	        
+	        if(employeeDaoImpl.isExistedEmployee(form.getUsername())){
+	        	errors.add("The user is existed");
+	        	return "createEmployeeAccount.jsp";
+	        }
 	
 	        // Create the user bean
 	        Employee employee = new Employee();

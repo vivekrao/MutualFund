@@ -17,4 +17,6 @@ public interface CustomerDao {
 	public String getNameById(int customer_id);
 	//Get customer's address by id.
 	public String getAddrById(int customer_id);
+	//Get customer through username
+	public Customer getCustomerByName(String username);
 }
