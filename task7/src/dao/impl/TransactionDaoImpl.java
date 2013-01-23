@@ -11,7 +11,7 @@ import dao.TransactionDao;
 public class TransactionDaoImpl extends HibernateBaseDaoImpl implements TransactionDao {
 
 	@Override
-	public List<Double> getAmountForCheckAndBuyByCustomer(Customer c) {
+	public List<Long> getAmountForCheckAndBuyByCustomer(Customer c) {
 		List<Object> list = this.findByHQL("from Transaction t where t.customer = " + c
 				+ " and t.execute_date = " + null
 				+ " and (t.transaction_type = " + Transaction.CHECK + " or "
@@ -19,7 +19,7 @@ public class TransactionDaoImpl extends HibernateBaseDaoImpl implements Transact
 		if(list.size() == 0) {
 			return null;
 		}
-		List<Double> amountList = new ArrayList<Double>();
+		List<Long> amountList = new ArrayList<Long>();
 		for(Object o : list) {
 			amountList.add(((Transaction) o).getAmount());
 		}

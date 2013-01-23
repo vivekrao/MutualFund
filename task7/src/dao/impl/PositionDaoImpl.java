@@ -17,7 +17,7 @@ public class PositionDaoImpl extends HibernateBaseDaoImpl implements PositionDao
 	}
 
 	@Override
-	public int getSharesByCustomerAndFund(Customer c, Fund f) {
+	public long getSharesByCustomerAndFund(Customer c, Fund f) {
 		Position p = (Position) this.get(Position.class, new PKPosition(c, f));
 		if(p == null) {
 			return -1;

@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 
 import model.Fund;
 
-import org.genericdao.RollbackException;
 import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
 
