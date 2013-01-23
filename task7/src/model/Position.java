@@ -18,15 +18,17 @@ public class Position implements Serializable {
 	private Customer customer;
 	private Fund fund;
 	private long shares;
+	private long price;
 	
 	public Position() {
 		
 	}
 	
-	public Position(Customer c, Fund f, long shares) {
+	public Position(Customer c, Fund f, long shares, long price) {
 		this.customer = c;
 		this.fund = f;
 		this.shares = shares;
+		this.price = price;
 	}
 	
 	@Id
@@ -54,5 +56,14 @@ public class Position implements Serializable {
 	
 	public void setShares(long shares) {
 		this.shares = shares;
+	}
+	
+	@Column(name = "price")
+	public long getPrice() {
+		return price;
+	}
+	
+	public void setPrice(long price) {
+		this.price = price;
 	}
 }

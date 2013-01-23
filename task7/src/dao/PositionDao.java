@@ -13,4 +13,6 @@ public interface PositionDao {
 	public long getSharesByCustomerAndFund(Customer c, Fund f);
 	//Get all funds of customer through customer's id.
 	public List<Fund> getAllFundByCustomer(Customer c);
+	//Get all position info by customer
+	public List<Position> getAllPositionByCustomer(Customer c);
 }

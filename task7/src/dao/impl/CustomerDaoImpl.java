@@ -1,5 +1,6 @@
 package dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import model.Customer;
@@ -66,6 +67,19 @@ public class CustomerDaoImpl extends HibernateBaseDaoImpl implements CustomerDao
 			return (Customer) list.get(0);
 		}
 		return null;
+	}
+
+	@Override
+	public List<Customer> getAllCustomer() {
+		List<Object> list = this.findByHQL("from Customer c");
+		if(list.size() == 0) {
+			return null;
+		}
+		List<Customer> customerList = new ArrayList<Customer>();
+		for(Object o : list) {
+			customerList.add((Customer) o);
+		}
+		return customerList;
 	}
 
 }

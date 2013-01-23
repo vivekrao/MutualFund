@@ -9,4 +9,6 @@ public interface EmployeeDao {
 	public boolean createEmployee(Employee e);
 	//Get employee through username
 	public Employee getEmployeeByName(String username);
+	//Change the password of an employee
+	public boolean changePassword(Employee e, String newPassword);
 }

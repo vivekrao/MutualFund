@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import model.Customer;
 
 public interface CustomerDao {
@@ -19,4 +21,6 @@ public interface CustomerDao {
 	public String getAddrById(int customer_id);
 	//Get customer through username
 	public Customer getCustomerByName(String username);
+	//Get customer list
+	public List<Customer> getAllCustomer();
 }

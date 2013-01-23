@@ -30,4 +30,10 @@ public class EmployeeDaoImpl extends HibernateBaseDaoImpl implements EmployeeDao
 		return null;
 	}
 
+	@Override
+	public boolean changePassword(Employee e, String newPassword) {
+		e.setPassword(newPassword);
+		return this.update(e);
+	}
+
 }
