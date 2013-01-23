@@ -16,7 +16,7 @@
 	<div id="containerAccount">
 		<header>
 			<!--start logo-->
-			<a href="#" id="logo"><img src="images/logo1.png" width="380"
+			<a href="#" id="logo"><img src="images/logo.png" width="380"
 				height="80" alt="logo" /></a>
 			<!--end logo-->
 		</header>

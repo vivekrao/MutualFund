@@ -10,59 +10,65 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import model.Employee;
+import model.Customer;
 
 import org.genericdao.RollbackException;
 import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
-import dao.EmployeeDao;
-import dao.impl.EmployeeDaoImpl;
-import form.CreateEmployeeForm;
+
+import dao.impl.CustomerDaoImpl;
+
+import form.CreateCustomerForm;
 
 
-public class CreateEmployeeAction extends Action {
-	private FormBeanFactory<CreateEmployeeForm> formBeanFactory = FormBeanFactory.getInstance(CreateEmployeeForm.class);
+public class CreateCustomerAction extends Action {
+	private FormBeanFactory<CreateCustomerForm> formBeanFactory = FormBeanFactory.getInstance(CreateCustomerForm.class);
 
-	private EmployeeDaoImpl employeeDaoImpl;
+	private CustomerDaoImpl customerDaoImpl;
 	
-	public CreateEmployeeAction(EmployeeDaoImpl employeeDaoImpl) {
-		this.employeeDaoImpl = employeeDaoImpl;
+	public CreateCustomerAction(CustomerDaoImpl customerDaoImpl) {
+		this.customerDaoImpl = customerDaoImpl;
 	}
 
-	public String getName() { return "createEmployee.do"; }
+	public String getName() { return "createCustomer.do"; }
 
     public String perform(HttpServletRequest request) {
         List<String> errors = new ArrayList<String>();
         request.setAttribute("errors",errors);
 
         try {
-	        CreateEmployeeForm form = formBeanFactory.create(request);
+	        CreateCustomerForm form = formBeanFactory.create(request);
 	        request.setAttribute("form",form);
 	        //request.setAttribute("userList", userDAO.getUsers());
 	
 	        // If no params were passed, return with no errors so that the form will be
 	        // presented (we assume for the first time).
 	        if (!form.isPresent()) {
-	            return "createEmployeeAccount.jsp";
+	            return "createCustomerAccount.jsp";
 	        }
 	
 	        // Any validation errors?
 	        errors.addAll(form.getValidationErrors());
 	        if (errors.size() != 0) {
-	            return "createEmployeeAccount.jsp";
+	            return "createCustomerAccount.jsp";
 	        }
 	
 	        // Create the user bean
-	        Employee employee = new Employee();
-	        employee.setUsername(form.getUsername());
-	        employee.setFirstname(form.getFirstName());
-	        employee.setLastname(form.getLastName());
-	        employee.setPassword(form.getPassword());
-	        employeeDaoImpl.createEmployee(employee);
+	        Customer customer = new Customer();
+	        customer.setUsername(form.getUsername());
+	        customer.setAddr_line1(form.getAddressLine1());
+	        customer.setAddr_line2(form.getAddressLine2());
+	        customer.setCity(form.getCity());
+	        customer.setFirstname(form.getFirstName());
+	        customer.setLastname(form.getLastName());
+	        customer.setPassword(form.getPassword());
+	        customer.setState(form.getState());
+	        customer.setZip(Integer.parseInt(form.getZip()));
+        	customerDaoImpl.createCustomer(customer);
         
 			// Attach (this copy of) the user bean to the session
 	        HttpSession session = request.getSession(false);
-	       // session.setAttribute("employee",employee);
+	       // session.setAttribute("user",user);
 	
 	        // After successful registration (and login) send to...
 	        String redirectTo = (String) session.getAttribute("redirectTo");
@@ -70,10 +76,10 @@ public class CreateEmployeeAction extends Action {
 	        
 	        // If redirectTo is null, redirect to the "manage" action
 			String webapp = request.getContextPath();
-			return webapp + "/createCustomer.do";
+			return webapp + "/manage.do";
         } catch (FormBeanException e) {
         	errors.add(e.getMessage());
-        	return "createEmployeeAccount.jsp";
+        	return "register.jsp";
         }
     }
 }

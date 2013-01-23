@@ -2,8 +2,7 @@ package controller;
 import java.io.IOException;
 import javax.servlet.*;
 import javax.servlet.http.*;
-import dao.EmployeeDao;
-import dao.impl.EmployeeDaoImpl;
+import dao.impl.*;
 
 public class Controller extends HttpServlet {
 
@@ -11,8 +10,8 @@ public class Controller extends HttpServlet {
        // Model model = new Model(getServletConfig());
 
         Action.add(new CreateEmployeeAction(new EmployeeDaoImpl()));
-        /*Action.add(new ListAction(model));
-        Action.add(new LoginAction(model));
+        Action.add(new CreateCustomerAction(new CustomerDaoImpl()));
+        /*Action.add(new LoginAction(model));
         Action.add(new LogoutAction(model));
         Action.add(new ManageAction(model));
         Action.add(new RegisterAction(model));
