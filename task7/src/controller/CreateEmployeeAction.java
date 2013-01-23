@@ -61,16 +61,16 @@ public class CreateEmployeeAction extends Action {
 	        employeeDaoImpl.createEmployee(employee);
         
 			// Attach (this copy of) the user bean to the session
-	        HttpSession session = request.getSession(false);
+	        //HttpSession session = request.getSession(false);
 	       // session.setAttribute("employee",employee);
 	
 	        // After successful registration (and login) send to...
-	        String redirectTo = (String) session.getAttribute("redirectTo");
-	        if (redirectTo != null) return redirectTo;
+	        /*String redirectTo = (String) session.getAttribute("redirectTo");
+	        if (redirectTo != null) return redirectTo;*/
 	        
 	        // If redirectTo is null, redirect to the "manage" action
-			String webapp = request.getContextPath();
-			return webapp + "/createCustomer.do";
+	        request.setAttribute("message","New Account for Employee "+employee.getFirstname()+employee.getLastname()+" has been created sucessfully.\n User Name is "+employee.getUsername());
+			return "success.jsp";
         } catch (FormBeanException e) {
         	errors.add(e.getMessage());
         	return "createEmployeeAccount.jsp";
