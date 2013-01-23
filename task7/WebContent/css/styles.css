@@ -231,7 +231,6 @@ h3 span{
 
 	}
 	
-	
 			
 header{
 	position: relative;
@@ -780,4 +779,35 @@ footer{
 .page {
 	text-align: center;
 	margin-top: 10px;
+}
+.group6{
+	float: left;
+	width: 300px;
+	position: relative;
+	background:#58B2DC;
+	padding:15px;
+	margin-bottom:20px;
+	margin-left:10px;
+	border:3px double #CDCDCD;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	height:350px;
+    -moz-box-shadow: 3px 3px rgba(0,0,0,0.1);
+	-webkit-box-shadow: 3px 3px rgba(0,0,0,0.1);
+	box-shadow: 3px 3px rgba(0,0,0,0.1);
+
+}
+.group6 p{
+	font-size: 12px;
+	line-height: 1.5em;
+	border-bottom: #fff solid;
+	border-width: 2px;
+	text-align:center;
+}
+.group6 p a{
+	line-height:1.5em;
+}
+.group6 p a:hover{
+	text-decoration: underline;
+	color:#3f3e3c;
 }

@@ -29,6 +29,7 @@
    background-color:transparent;
    margin-left: 5%;
    margin-right: 5%;
+   min-height:100%;
 }
 .groupReset {
 	float: right;

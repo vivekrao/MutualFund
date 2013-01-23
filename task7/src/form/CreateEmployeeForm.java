@@ -8,8 +8,6 @@ package form;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.mybeans.form.FormBean;
 
 public class CreateEmployeeForm extends FormBean{
