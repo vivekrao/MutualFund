@@ -39,7 +39,6 @@ public class ResearchFundAction extends Action {
 		try {
 			ResearchFundForm form = formBeanFactory.create(request);
 			request.setAttribute("form", form);
-			System.out.println("in here! "+fundDaoImpl.getFundHistory().get(0).getSymbol());
 			request.setAttribute("fundList", fundDaoImpl.getFundHistory());
 			if (!form.isPresent()) {
 				return "researchFund.jsp";
