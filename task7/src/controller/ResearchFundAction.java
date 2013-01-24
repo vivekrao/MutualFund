@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import model.Customer;
+import model.Fund;
 
 import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
@@ -22,6 +23,7 @@ public class ResearchFundAction extends Action {
 
 	public ResearchFundAction(FundDaoImpl fundDaoImpl) {
 		this.fundDaoImpl = fundDaoImpl;
+		
 	}
 
 	@Override
@@ -37,6 +39,8 @@ public class ResearchFundAction extends Action {
 		try {
 			ResearchFundForm form = formBeanFactory.create(request);
 			request.setAttribute("form", form);
+			System.out.println("in here! "+fundDaoImpl.getFundHistory().get(0).getSymbol());
+			request.setAttribute("fundList", fundDaoImpl.getFundHistory());
 			if (!form.isPresent()) {
 				return "researchFund.jsp";
 			}
@@ -50,6 +54,7 @@ public class ResearchFundAction extends Action {
 				return "researchFund.jsp";
 			}
 			request.setAttribute("fundPrice", fundPrice);
+			request.setAttribute("fundName", form.getFundName());
 			return "researchFundDetail.jsp";
 		} catch (FormBeanException e) {
         	errors.add(e.getMessage());
