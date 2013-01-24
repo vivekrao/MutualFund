@@ -1,7 +1,9 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>  
 <head>
 <meta charset="UTF-8">
 <title>Home - Online Mutual Fund</title>
+
 <link rel="icon" href="images/favicon.gif" type="image/x-icon"/>
 
 <link rel="shortcut icon" href="images/favicon.gif" type="image/x-icon"/> 
@@ -76,33 +78,21 @@
    
 		<table border="2" class="accountTable" align="center">
 			<tr>
-				<th width="100">Formation Date</th>
 				<th width="100">Fund Name</th>
 				<th width="100">Tickr</th>
-				<th width="60">Share Price (NAV)</th>
+           				<th width="60">Share Price (NAV)</th>
 				<th width="100"></th>
 			</tr>
+			<c:forEach var="f" items="${fundList}">
 			<tr>
-				<td align="center">1/16/2010</td>
-				<td align="center">Terry Fund</td>
-				<td align="center">TRRY</td>
-				<td align="center">23.56</td>
-				<td align="center"><a href="ResearchFundDetail.html">Details</a></td>
+				<td align="center">${f.name}</td>
+				<td align="center">${f.symbol}</td>
+				<td align="center">${f.latestPrice}</td>
+				<td align="center"><a href="researchFund.do?fundName=${f.name}">Details</a></td>
 			</tr>
 			<tr>
-				<td align="center">1/14/2009</td>
-				<td align="center">Sujata Fund</td>
-				<td align="center">SJATA</td>
-				<td align="center">21</td>
-				<td align="center"><a href="ResearchFundDetail.html">Details</a></td>
 			</tr>
-			<tr>
-				<td align="center">1/15/2007</td>
-				<td align="center">Sophie Fund</td>
-				<td align="center">SPHIE</td>
-				<td align="center">31.34</td>
-				<td align="center"><a href="ResearchFundDetail.html">Details</a></td>
-			</tr>
+			</c:forEach>
 		</table>
 	</form>
    
