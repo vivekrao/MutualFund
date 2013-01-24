@@ -27,7 +27,7 @@ public class PositionDaoImpl extends HibernateBaseDaoImpl implements PositionDao
 
 	@Override
 	public synchronized List<Fund> getAllFundByCustomer(Customer c) {
-		List<Object> list = this.findByHQL("from Position p where p.customer_id = " + c.getCustomer_id());
+		List<Object> list = this.findByHQL("from Position p where p.customer = " + c.getCustomer_id());
 		if(list.size() == 0) {
 			return null;
 		}
@@ -40,7 +40,7 @@ public class PositionDaoImpl extends HibernateBaseDaoImpl implements PositionDao
 
 	@Override
 	public synchronized List<Position> getAllPositionByCustomer(Customer c) {
-		List<Object> list = this.findByHQL("from Position p where p.customer_id = " + c.getCustomer_id());
+		List<Object> list = this.findByHQL("from Position p where p.customer = " + c.getCustomer_id());
 		if(list.size() == 0) {
 			return null;
 		}

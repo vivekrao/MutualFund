@@ -12,7 +12,7 @@ public class TransactionDaoImpl extends HibernateBaseDaoImpl implements Transact
 
 	@Override
 	public synchronized List<Long> getAmountForCheckAndBuyByCustomer(Customer c) {
-		List<Object> list = this.findByHQL("from Transaction t where t.customer_id = " + c.getCustomer_id()
+		List<Object> list = this.findByHQL("from Transaction t where t.customer = " + c.getCustomer_id()
 				+ " and t.execute_date = " + null
 				+ " and (t.transaction_type = " + Transaction.REQUEST + " or "
 				+ Transaction.BUY + ")");
@@ -28,7 +28,7 @@ public class TransactionDaoImpl extends HibernateBaseDaoImpl implements Transact
 
 	@Override
 	public synchronized List<Transaction> getTransactionHistory(Customer c) {
-		List<Object> list = this.findByHQL("from Transaction t where t.customer_id = " + c.getCustomer_id());
+		List<Object> list = this.findByHQL("from Transaction t where t.customer = " + c.getCustomer_id());
 		if(list.size() == 0) {
 			return null;
 		}

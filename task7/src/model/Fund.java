@@ -63,7 +63,7 @@ public class Fund implements Serializable {
 		return latestPrice;
 	}
 	
-	public void setLastestPrice(long lastestPrice) {
+	public void setLatestPrice(long latestPrice) {
 		this.latestPrice = latestPrice;
 	}
 }
