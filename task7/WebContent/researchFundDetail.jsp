@@ -74,8 +74,9 @@
    <p>Fund details: </p><br>
    <form method="POST" action="buyFund.jsp">
    		<p>
-   			Terry Fund (TRRY) <br><br>
-   			Current NAV: 23.56 <br>
+   		
+   			${fundName}<br><br>
+   			Last Closing Price:  <font color="red">${fundPrice}</font><br>
    			
    		</p>
    		
