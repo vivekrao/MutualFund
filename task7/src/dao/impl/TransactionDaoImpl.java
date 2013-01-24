@@ -11,10 +11,10 @@ import dao.TransactionDao;
 public class TransactionDaoImpl extends HibernateBaseDaoImpl implements TransactionDao {
 
 	@Override
-	public List<Long> getAmountForCheckAndBuyByCustomer(Customer c) {
-		List<Object> list = this.findByHQL("from Transaction t where t.customer = " + c
+	public synchronized List<Long> getAmountForCheckAndBuyByCustomer(Customer c) {
+		List<Object> list = this.findByHQL("from Transaction t where t.customer_id = " + c.getCustomer_id()
 				+ " and t.execute_date = " + null
-				+ " and (t.transaction_type = " + Transaction.CHECK + " or "
+				+ " and (t.transaction_type = " + Transaction.REQUEST + " or "
 				+ Transaction.BUY + ")");
 		if(list.size() == 0) {
 			return null;
@@ -24,6 +24,19 @@ public class TransactionDaoImpl extends HibernateBaseDaoImpl implements Transact
 			amountList.add(((Transaction) o).getAmount());
 		}
 		return amountList;
+	}
+
+	@Override
+	public synchronized List<Transaction> getTransactionHistory(Customer c) {
+		List<Object> list = this.findByHQL("from Transaction t where t.customer_id = " + c.getCustomer_id());
+		if(list.size() == 0) {
+			return null;
+		}
+		List<Transaction> transactionList = new ArrayList<Transaction>();
+		for(Object o : list) {
+			transactionList.add((Transaction) o);
+		}
+		return transactionList;
 	}
 
 }

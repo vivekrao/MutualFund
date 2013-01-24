@@ -12,12 +12,12 @@ import dao.PositionDao;
 public class PositionDaoImpl extends HibernateBaseDaoImpl implements PositionDao {
 
 	@Override
-	public boolean createPosition(Position p) {
+	public synchronized boolean createPosition(Position p) {
 		return this.save(p);
 	}
 
 	@Override
-	public long getSharesByCustomerAndFund(Customer c, Fund f) {
+	public synchronized long getSharesByCustomerAndFund(Customer c, Fund f) {
 		Position p = (Position) this.get(Position.class, new PKPosition(c, f));
 		if(p == null) {
 			return -1;
@@ -26,8 +26,8 @@ public class PositionDaoImpl extends HibernateBaseDaoImpl implements PositionDao
 	}
 
 	@Override
-	public List<Fund> getAllFundByCustomer(Customer c) {
-		List<Object> list = this.findByHQL("from Position p where p.customer = " + c);
+	public synchronized List<Fund> getAllFundByCustomer(Customer c) {
+		List<Object> list = this.findByHQL("from Position p where p.customer_id = " + c.getCustomer_id());
 		if(list.size() == 0) {
 			return null;
 		}
@@ -39,8 +39,8 @@ public class PositionDaoImpl extends HibernateBaseDaoImpl implements PositionDao
 	}
 
 	@Override
-	public List<Position> getAllPositionByCustomer(Customer c) {
-		List<Object> list = this.findByHQL("from Position p where p.customer = " + c);
+	public synchronized List<Position> getAllPositionByCustomer(Customer c) {
+		List<Object> list = this.findByHQL("from Position p where p.customer_id = " + c.getCustomer_id());
 		if(list.size() == 0) {
 			return null;
 		}

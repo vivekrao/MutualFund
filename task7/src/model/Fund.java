@@ -18,7 +18,7 @@ public class Fund implements Serializable {
 	private int fund_id;
 	private String name;
 	private String symbol;
-	private long lastestPrice;
+	private long latestPrice;
 	
 	public Fund() {
 		
@@ -59,11 +59,11 @@ public class Fund implements Serializable {
 	}
 	
 	@Column(name = "lastestPrice")
-	public long getLastestPrice() {
-		return lastestPrice;
+	public long getLatestPrice() {
+		return latestPrice;
 	}
 	
 	public void setLastestPrice(long lastestPrice) {
-		this.lastestPrice = lastestPrice;
+		this.latestPrice = latestPrice;
 	}
 }

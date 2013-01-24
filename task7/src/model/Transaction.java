@@ -21,7 +21,7 @@ public class Transaction implements Serializable {
 	public final static int SELL = 1;
 	public final static int BUY = 2;
 	public final static int DEPOSIT = 3;
-	public final static int CHECK = 4;
+	public final static int REQUEST = 4;
 	
 	private int transaction_id;
 	private Customer customer;

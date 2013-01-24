@@ -1,14 +1,17 @@
 package dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import model.Customer;
 import model.Fund;
+import model.Position;
 import dao.FundDao;
 
 public class FundDaoImpl extends HibernateBaseDaoImpl implements FundDao {
 
 	@Override
-	public boolean isExistedFund(String name) {
+	public synchronized boolean isExistedFund(String name) {
 		List<Object> list = this.findByHQL("from Fund f where f.name = '" + name + "'");
 		if(list.size() > 0) {
 			return true;
@@ -17,8 +20,49 @@ public class FundDaoImpl extends HibernateBaseDaoImpl implements FundDao {
 	}
 
 	@Override
-	public boolean createFund(Fund f) {
+	public synchronized boolean createFund(Fund f) {
 		return this.save(f);
+	}
+
+	@Override
+	public synchronized long checkAvailablityOfFund(String name) {
+		List<Object> list = this.findByHQL("from Fund f where f.name = '" + name + "'");
+		if(list.size() > 0) {
+			return ((Fund) list.get(0)).getLatestPrice();
+		}
+		return -1;
+	}
+
+	@Override
+	public synchronized long checkAvailablityOfFund(String name, Customer c) {
+		Fund f = this.findFundByName(name);
+		List<Object> list = this.findByHQL("from Position p where p.fund_id = " + f.getFund_id());
+		for(Object o : list) {
+			Position p = (Position) o;
+			if(p.getCustomer().equals(c)) {
+				return f.getLatestPrice() * p.getShares();
+			}
+		}
+		return -1;
+	}
+
+	@Override
+	public synchronized Fund findFundByName(String name) {
+		List<Object> list = this.findByHQL("from Fund f where f.name = '" + name + "'");
+		return (Fund) list.get(0);
+	}
+
+	@Override
+	public synchronized List<Fund> getFundHistory() {
+		List<Object> list = this.findByHQL("from Fund f");
+		if(list.size() == 0) {
+			return null;
+		}
+		List<Fund> fundList = new ArrayList<Fund>();
+		for(Object o : list) {
+			fundList.add((Fund) o);
+		}
+		return fundList;
 	}
 
 }

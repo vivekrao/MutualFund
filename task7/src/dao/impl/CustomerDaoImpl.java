@@ -9,7 +9,7 @@ import dao.CustomerDao;
 public class CustomerDaoImpl extends HibernateBaseDaoImpl implements CustomerDao {
 
 	@Override
-	public boolean isExistedCustomer(String username) {
+	public synchronized boolean isExistedCustomer(String username) {
 		List<Object> list = this.findByHQL("from Customer c where c.username = '" + username + "'");
 		if(list.size() > 0) {
 			return true;
@@ -18,18 +18,18 @@ public class CustomerDaoImpl extends HibernateBaseDaoImpl implements CustomerDao
 	}
 
 	@Override
-	public boolean changePassword(Customer c, String newPassword) {
+	public synchronized boolean changePassword(Customer c, String newPassword) {
 		c.setPassword(newPassword);
 		return this.update(c);
 	}
 
 	@Override
-	public boolean createCustomer(Customer c) {
+	public synchronized boolean createCustomer(Customer c) {
 		return this.save(c);
 	}
 
 	@Override
-	public double getCashByCustomerId(int customer_id) {
+	public synchronized double getCashByCustomerId(int customer_id) {
 		Customer c = this.getCustomerById(customer_id);
 		if(c == null) {
 			return -1;
@@ -38,12 +38,12 @@ public class CustomerDaoImpl extends HibernateBaseDaoImpl implements CustomerDao
 	}
 	
 	@Override
-	public Customer getCustomerById(int id) {
+	public synchronized Customer getCustomerById(int id) {
 		return (Customer) this.get(Customer.class, new Integer(id));
 	}
 
 	@Override
-	public String getNameById(int customer_id) {
+	public synchronized String getNameById(int customer_id) {
 		Customer c = this.getCustomerById(customer_id);
 		if(c == null) {
 			return null;
@@ -52,7 +52,7 @@ public class CustomerDaoImpl extends HibernateBaseDaoImpl implements CustomerDao
 	}
 	
 	@Override
-	public String getAddrById(int customer_id) {
+	public synchronized String getAddrById(int customer_id) {
 		Customer c = this.getCustomerById(customer_id);
 		if(c == null) {
 			return null;
@@ -61,7 +61,7 @@ public class CustomerDaoImpl extends HibernateBaseDaoImpl implements CustomerDao
 	}
 	
 	@Override
-	public Customer getCustomerByName(String username) {
+	public synchronized Customer getCustomerByName(String username) {
 		List<Object> list = this.findByHQL("from Customer c where c.username = '" + username + "'");
 		if(list.size() > 0) {
 			return (Customer) list.get(0);
@@ -70,7 +70,7 @@ public class CustomerDaoImpl extends HibernateBaseDaoImpl implements CustomerDao
 	}
 
 	@Override
-	public List<Customer> getAllCustomer() {
+	public synchronized List<Customer> getAllCustomer() {
 		List<Object> list = this.findByHQL("from Customer c");
 		if(list.size() == 0) {
 			return null;
@@ -80,6 +80,14 @@ public class CustomerDaoImpl extends HibernateBaseDaoImpl implements CustomerDao
 			customerList.add((Customer) o);
 		}
 		return customerList;
+	}
+
+	@Override
+	public synchronized boolean checkCashBalanceByCustomer(Customer c, long amount) {
+		if(c.getCash() >= amount) {
+			return true;
+		}
+		return false;
 	}
 
 }

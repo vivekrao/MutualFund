@@ -23,4 +23,6 @@ public interface CustomerDao {
 	public Customer getCustomerByName(String username);
 	//Get customer list
 	public List<Customer> getAllCustomer();
+	//Check whether the customer has enough balance to buy the fund
+	public boolean checkCashBalanceByCustomer(Customer c, long amount);
 }

@@ -8,7 +8,7 @@ import dao.EmployeeDao;
 public class EmployeeDaoImpl extends HibernateBaseDaoImpl implements EmployeeDao {
 
 	@Override
-	public boolean isExistedEmployee(String username) {
+	public synchronized boolean isExistedEmployee(String username) {
 		List<Object> list = this.findByHQL("from Employee e where e.username = '" + username + "'");
 		if(list.size() > 0) {
 			return true;
@@ -17,12 +17,12 @@ public class EmployeeDaoImpl extends HibernateBaseDaoImpl implements EmployeeDao
 	}
 
 	@Override
-	public boolean createEmployee(Employee e) {
+	public synchronized boolean createEmployee(Employee e) {
 		return this.save(e);
 	}
 	
 	@Override
-	public Employee getEmployeeByName(String username) {
+	public synchronized Employee getEmployeeByName(String username) {
 		List<Object> list = this.findByHQL("from Employee c where c.username = '" + username + "'");
 		if(list.size() > 0) {
 			return (Employee) list.get(0);
@@ -31,7 +31,7 @@ public class EmployeeDaoImpl extends HibernateBaseDaoImpl implements EmployeeDao
 	}
 
 	@Override
-	public boolean changePassword(Employee e, String newPassword) {
+	public synchronized boolean changePassword(Employee e, String newPassword) {
 		e.setPassword(newPassword);
 		return this.update(e);
 	}
