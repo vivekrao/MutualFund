@@ -15,6 +15,7 @@ public class Controller extends HttpServlet {
         Action.add(new EmployeeLoginAction(new EmployeeDaoImpl()));
         Action.add(new CustomerLoginAction(new CustomerDaoImpl()));
         Action.add(new ResearchFundAction(new FundDaoImpl()));
+        Action.add(new TransactionHistoryAction(new TransactionDaoImpl()));
         /*Action.add(new RegisterAction(model));
         Action.add(new RemoveAction(model));
         Action.add(new AddAction(model));

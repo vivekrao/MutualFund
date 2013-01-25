@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>  
 <head>
 <meta charset="UTF-8">
@@ -80,44 +81,29 @@
 				<th width="100">Operation</th>
 				<th width="100">Fund Name</th>
 				<th width="100">Number of shares</th>
-				<th width="60">Share Price</th>
+				<th width="60">Latest Price</th>
 				<th width="100">Amount ($)</th>
 				<th width="100">Status</th>
 			</tr>
+			
+			<c:forEach var="t" items="${transactionHistory}">
 			<tr>
-				<td align="center">1/16/2013</td>
-				<td align="center">Buy</td>
-				<td align="center">Terry Fund</td>
-				<td align="center">100</td>
-				<td align="center">23.56</td>
-				<td align="center">2356</td>
-				<td align="center">Completed</td>
+				<td align="center">${t.execute_date}</td>
+				<td align="center">${t.transaction_type}</td>
+				<td align="center">${t.fund.name}</td>
+				<td align="center">${t.shares}</td>
+				<td align="center">${t.fund.latestPrice}</td>
+				<td align="center">${t.amount}</td>
+				<c:choose>
+				<c:when test="${empty t.execute_date}">
+					<td align="center">Pending</td>
+				</c:when>
+				<c:otherwise>
+					<td align="center">Completed</td>
+				</c:otherwise>
+				</c:choose>
 			</tr>
-			<tr>
-				<td align="center">1/14/2013</td>
-				<td align="center">Deposit</td>
-				<td align="center">Sujata Fund</td>
-				<td align="center">50</td>
-				<td align="center">*</td>
-				<td align="center">*</td>
-				<td align="center">Pending</td>
-			</tr>
-			<tr>
-				<td align="center">1/15/2013</td>
-				<td align="center">Sell</td>
-				<td align="center">Sophie Fund</td>
-				<td align="center">100</td>
-				<td align="center">25</td>
-				<td align="center">2500</td>
-				<td align="center">Completed</td>
-			</tr>
-			<tr>
-				<td colspan="7">
-					<div align="center">
-						<input type="submit" name="button" id="accountBtn" value="Buy Fund"/>
-					</div>
-				</td>
-			</tr>
+			</c:forEach>
 		</table>
 	</form>
    
