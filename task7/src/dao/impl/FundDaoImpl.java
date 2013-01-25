@@ -6,6 +6,7 @@ import java.util.List;
 import model.Customer;
 import model.Fund;
 import model.Position;
+import model.Transaction;
 import dao.FundDao;
 
 public class FundDaoImpl extends HibernateBaseDaoImpl implements FundDao {
@@ -63,6 +64,27 @@ public class FundDaoImpl extends HibernateBaseDaoImpl implements FundDao {
 			fundList.add((Fund) o);
 		}
 		return fundList;
+	}
+	
+	@Override
+	public boolean isBalanceAvailable(Customer customer, long amount) {
+		return true;
+	}
+	
+	@Override
+	public void buyFundTransaction(Transaction transaction) {
+		this.save(transaction);
+	}
+	
+	@Override
+	public synchronized List<Fund> getCustomerFunds(Customer customer) {
+		
+		List<Object> list = this.findByHQL("from Position p where p.customer_id = " + customer.getCustomer_id());
+		
+		if(list!=null && list.size() > 0) {
+			return (List<Fund>) ((Fund) list);
+		}
+		return null;
 	}
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import model.Customer;
 import model.Fund;
+import model.Transaction;
 
 public interface FundDao {
 	//Check whether fund is existed through fund name.
@@ -18,4 +19,10 @@ public interface FundDao {
 	public Fund findFundByName(String name);
 	//Find info of all funds.
 	public List<Fund> getFundHistory();
+	//Check the balance of customer
+	public boolean isBalanceAvailable(Customer customer, long amount);
+	//Send buy fund transaction to Transaction table as pending
+	public void buyFundTransaction(Transaction transaction);
+	//get fund list of customer
+	public List<Fund> getCustomerFunds(Customer customer);
 }
