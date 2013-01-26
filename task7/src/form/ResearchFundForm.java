@@ -3,8 +3,6 @@ package form;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Fund;
-
 import org.mybeans.form.FormBean;
 
 public class ResearchFundForm extends FormBean{
