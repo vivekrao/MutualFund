@@ -75,11 +75,10 @@ public class BuyFundAction extends Action {
 			if (amountList != null && amountList.size() > 0) {
 				for (int i = 0; i < amountList.size(); i++) {
 					cashBalance = cashBalance - (amountList.get(i) / 100);
-					System.out.println("amount list : " + amountList.get(i));
 				}
 			}
 			if ((cashBalance - amount) < 0.0) {
-				errors.add("You do not have enough cash balance in your account");
+				errors.add("You do not have enough cash balance in your account. You have only $"+(cashBalance)+" left");
 				return "buyFund.jsp";
 			}
 
@@ -89,15 +88,13 @@ public class BuyFundAction extends Action {
 			transaction.setExecute_date(null);
 			transaction.setFund(fund);
 			transaction.setTransaction_type(2);
-			System.out.println("transaction entered");
 			if (transactionDaoImpl.createTransaction(transaction)) {
-				System.out.println("done!");
 			} else {
 				errors.add("Error in database. Please try again later.");
 				return "buyFund.jsp";
 			}
 
-			return "transactionHistory.jsp";
+			return "transactionHistory.do";
 		} catch (FormBeanException e) {
 			errors.add(e.getMessage());
 			return "buyFund.jsp";
