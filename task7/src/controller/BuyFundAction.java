@@ -53,38 +53,33 @@ public class BuyFundAction extends Action {
 					.getAttribute("customer");
 			request.setAttribute("custFundList",
 					positionDaoImpl.getAllFundByCustomer(customer));
-			System.out.println("third!");
 			if (!form.isPresent()) {
 				return "buyFund.jsp";
-			}
-			System.out.println("second!");
-			if (!fundDaoImpl.isExistedFund(form.getFundName())) {
-				System.out.println(form.getFundName());
-				errors.add("This fund does not exist");
-			}
-			double amount = Double.parseDouble(form.getBuyAmount());
-			System.out.println("third");
-			Fund fund = fundDaoImpl.findFundByName(form.getFundName());
-			List<Long> amountList = transactionDaoImpl
-					.getAmountForCheckAndBuyByCustomer(customer);
-			double cashBalance = customerDaoImpl.getCashByCustomerId(customer.getCustomer_id()) / 100;
-			System.out.println(cashBalance);
-			if (amountList == null || amountList.size() <= 0) {
-
-			} else {
-				for (int i = 0; i < amountList.size(); i++) {
-					cashBalance = cashBalance - (amountList.get(i) / 100);
-					System.out.println("amount list : "+amountList.get(i));
-				}
-			}
-			System.out.println(cashBalance-amount);
-			if ((cashBalance - amount) < 0.0) {
-				errors.add("You do not have enough cash balance in your account");
 			}
 			// Any validation errors?
 			errors.addAll(form.getValidationErrors());
 			if (errors.size() != 0) {
 				System.out.println(errors);
+				return "buyFund.jsp";
+			}
+			if (!fundDaoImpl.isExistedFund(form.getFundName())) {
+				errors.add("This fund does not exist");
+				return "buyFund.do";
+			}
+			double amount = Double.parseDouble(form.getBuyAmount());
+			Fund fund = fundDaoImpl.findFundByName(form.getFundName());
+			List<Long> amountList = transactionDaoImpl
+					.getAmountForCheckAndBuyByCustomer(customer);
+			double cashBalance = customerDaoImpl.getCashByCustomerId(customer
+					.getCustomer_id()) / 100;
+			if (amountList != null && amountList.size() > 0) {
+				for (int i = 0; i < amountList.size(); i++) {
+					cashBalance = cashBalance - (amountList.get(i) / 100);
+					System.out.println("amount list : " + amountList.get(i));
+				}
+			}
+			if ((cashBalance - amount) < 0.0) {
+				errors.add("You do not have enough cash balance in your account");
 				return "buyFund.jsp";
 			}
 
@@ -95,13 +90,14 @@ public class BuyFundAction extends Action {
 			transaction.setFund(fund);
 			transaction.setTransaction_type(2);
 			System.out.println("transaction entered");
-			if(transactionDaoImpl.createTransaction(transaction)) {
+			if (transactionDaoImpl.createTransaction(transaction)) {
 				System.out.println("done!");
 			} else {
-				System.out.println("not done! ");
+				errors.add("Error in database. Please try again later.");
+				return "buyFund.jsp";
 			}
 
-			return "success.jsp";
+			return "transactionHistory.jsp";
 		} catch (FormBeanException e) {
 			errors.add(e.getMessage());
 			return "buyFund.jsp";

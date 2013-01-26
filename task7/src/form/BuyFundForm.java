@@ -36,6 +36,7 @@ public class BuyFundForm extends FormBean{
 			buyAmount = amt*100+"";
 		} catch(NumberFormatException nfe) {
 			errors.add("Please enter amount in digits. Do not use letters");
+			return errors;
 		}
 		System.out.println("The errors are: "+errors);
         if (errors.size() > 0) return errors;
